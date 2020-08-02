@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -60,20 +61,37 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         body: CustomScrollView(
+
           slivers: [
             SliverAppBar(
-              forceElevated: true,
-              expandedHeight: 100.0,
-              floating: true,
-              elevation: 50,
-              title: Text('Explore'),
-              leading: CircleAvatar(
-                  backgroundColor: Colors.blue,
-                  child: Text('CH',style: TextStyle(
-                      color: Colors.white
-                  ),)
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)
+                )
               ),
-              backgroundColor: Colors.green,
+              forceElevated: true,
+//              floating: true,
+              pinned: true,
+              expandedHeight: 300.0,
+
+//              floating: true,
+//              elevation: 10,
+              title: Text('Explore'),
+              leading: Padding(
+                child: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Text('CH',style: TextStyle(
+                        color: Colors.white
+                    ),)
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 10
+                ),
+              ),
+              backgroundColor: Colors.white,
+
               actions: [
                 IconButton(
                   icon: Icon(
@@ -94,25 +112,107 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 )
               ],
-              flexibleSpace: FlexibleSpaceBar(
-                title: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                    children: [
-                      TextSpan(text : 'Course', style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black
+              flexibleSpace: Stack(children: [
+                Positioned.fill(
+                    child: Image.network(
+                      "https://coursehub.co.zw/assets/img/illustrations/characters/friends.png",
+                      fit: BoxFit.cover,
+                    )),
+                FlexibleSpaceBar(
+                  centerTitle:true,
+                  title:  RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                          children: [
+                            TextSpan(text : 'Course', style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black
+                            )),
+                            TextSpan(text: 'hub',
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600
+                                )
+                            )
+                          ]
                       )),
-                      TextSpan(text: 'hub',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w600
-                          )
-                      )
-                    ]
-                )),
+                ),
+
+                ],),
+            ),
+
+            SliverToBoxAdapter(
+
+              child: Container(
+                height: MediaQuery.of(context).size.height/3,
+                child: Column(
+                  children: [
+
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 20
+                      ),
+                      child: TextField(
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          hintText: 'Search Courses',
+
+                            suffixIcon: Icon(Icons.search),
+
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20)
+                            )
+                        ),
+                      ),
+                    ),
+                    Text('DEVS'),
+                    Expanded(
+                        child: ListView.separated(
+                      separatorBuilder: (context, index)=>SizedBox(
+                        width: 10,
+                      ),
+                      itemCount: 100,
+                      padding: EdgeInsets.all(10),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index){
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: index%2==0?Colors.blueAccent:Colors.deepOrange,
+                            ),
+                            width: 100.0,
+                            height: 50,
+
+                          );
+                        }
+                    )),
+
+                  ],
+                )
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                  (context, index){
+
+                    return Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: index%2==0?Colors.deepOrange:Colors.blue,
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        height: 100,
+                        width: 100,
+
+                      ),
+                    );
+                  },
+
               ),
             )
+
           ],
         ),
         // This trailing comma makes auto-formatting nicer for build methods.
