@@ -70,10 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     bottomRight: Radius.circular(20)
                 )
               ),
-              forceElevated: true,
-//              floating: true,
-              pinned: true,
-              expandedHeight: 300.0,
+//              forceElevated: true,
+              floating: true,
+              pinned: false,
+              elevation: 10,
+              expandedHeight: MediaQuery.of(context).size.height/3,
 
 //              floating: true,
 //              elevation: 10,
@@ -118,8 +119,24 @@ class _MyHomePageState extends State<MyHomePage> {
                       "https://coursehub.co.zw/assets/img/illustrations/characters/friends.png",
                       fit: BoxFit.cover,
                     )),
+//                Container(
+//                  decoration: BoxDecoration(
+//                    gradient: LinearGradient(
+//                      colors: [
+//                        Colors.blue,
+//                        Colors.purple
+//                      ]
+//                    )
+//                  ),
+//
+//                ),
                 FlexibleSpaceBar(
                   centerTitle:true,
+                  background: Stack(
+                    children: [
+
+                    ],
+                  ),
                   title:  RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
@@ -138,35 +155,82 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                 ),
 
+
+
                 ],),
             ),
+            SliverPadding(
+              sliver: SliverAppBar(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)
+                  ),
+                  backgroundColor: Colors.white,
+                  pinned: true,
+                  leading: Icon(Icons.list, color: Colors.blue,),
+                  actions: [
+                    Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Container(
+                        width: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                                colors: [
+                                  Colors.blueAccent,
+                                  Colors.purple
+                                ]
+                            )
+                        ),
+//                          color: Colors.purpleAccent,
+                        child: Icon(Icons.search, color: Colors.white,),
+                      ),
+                    ),
+
+                  ],
+                  title: Padding(
+                    padding: EdgeInsets.all(1), // remove
+                    child: Container(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          focusColor: Colors.blueAccent,
+                          hintText: 'Search Courses',
+                          hintStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18
+                          ),
+
+                        ),
+                      ),
+                    ),
+                  )
+              ),
+              padding: EdgeInsets.all(20),
+            )
+            ,
 
             SliverToBoxAdapter(
 
               child: Container(
                 height: MediaQuery.of(context).size.height/3,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    Container(
+                    SizedBox(
+                    height: 10,
+                    ),
+                    Padding(
                       padding: EdgeInsets.symmetric(
-                        vertical: 20,
                         horizontal: 20
                       ),
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          hintText: 'Search Courses',
+                      child: Text(
+                        'Top Developers',
+//                      textAlign: TextAlign.left,
+                        style: TextStyle(
 
-                            suffixIcon: Icon(Icons.search),
-
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20)
-                            )
                         ),
                       ),
                     ),
-                    Text('DEVS'),
                     Expanded(
                         child: ListView.separated(
                       separatorBuilder: (context, index)=>SizedBox(
