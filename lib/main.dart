@@ -1,3 +1,4 @@
+import 'package:coursehub/ui/account/new_account.dart';
 import 'package:coursehub/ui/base.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Base(),
+      home: NewAccount(),
     );
   }
 }
