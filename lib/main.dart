@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -52,6 +54,40 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  PageController _pageController = PageController();
+  List _sliderPageImages = [
+    'assets/icons/courses main.png',
+    'assets/icons/home slider3.png',
+
+  ];
+
+  @override
+  void initState() {
+
+    super.initState();
+    this.startSlides();
+  }
+
+
+  @override
+  void dispose() {
+      _pageController.dispose();
+      super.dispose();
+  }
+
+  startSlides(){
+    Timer.periodic(Duration(seconds: 5), (t){
+      if (mounted){
+        _pageController.nextPage(duration: Duration(
+            milliseconds: 400
+        ), curve: Curves.easeIn);
+      }else{
+        // cancel timer
+        t.cancel();
+      }
+
+    });
+  }
 
 
 
@@ -78,22 +114,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
 //              floating: true,
 //              elevation: 10,
-              title: Text('Explore'),
+              title: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                      children: [
+                        TextSpan(text : 'Course', style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                            fontSize: 25
+                        )),
+                        TextSpan(text: 'hub',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600
+                            )
+                        )
+                      ]
+                  )),
               leading: Padding(
-                child: CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    child: Text('CH',style: TextStyle(
-                        color: Colors.white
-                    ),)
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 10
-                ),
+                padding: EdgeInsets.only(left: 10, top: 10),
+                child: Container(
+
+                  child: Image.asset('assets/icons/Coursehub logo.png'),),
               ),
               backgroundColor: Colors.white,
 
               actions: [
+
                 IconButton(
                   icon: Icon(
                     Icons.add,
@@ -115,10 +163,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               flexibleSpace: Stack(children: [
                 Positioned.fill(
-                    child: Image.network(
-                      "https://coursehub.co.zw/assets/img/illustrations/characters/friends.png",
-                      fit: BoxFit.cover,
-                    )),
+                    child: PageView.builder(
+
+                        controller: _pageController,
+                        itemBuilder: (context, index){
+                      return Image.asset(
+                        index%2==0?_sliderPageImages[0]:_sliderPageImages[1],
+                        fit: BoxFit.cover,
+                      );
+                      // TODO: refactor to display relevant content leading to unique destinations
+                    })),
+
 //                Container(
 //                  decoration: BoxDecoration(
 //                    gradient: LinearGradient(
@@ -137,22 +192,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     ],
                   ),
-                  title:  RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                          children: [
-                            TextSpan(text : 'Course', style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black
-                            )),
-                            TextSpan(text: 'hub',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.w600
-                                )
-                            )
-                          ]
-                      )),
+//                  title:  RichText(
+//                      textAlign: TextAlign.center,
+//                      text: TextSpan(
+//                          children: [
+//                            TextSpan(text : 'Ex', style: TextStyle(
+//                                fontWeight: FontWeight.w600,
+//                                color: Colors.white.withGreen(25),
+//                                fontSize: 25
+//                            )),
+//                            TextSpan(text: 'plore',
+//                                style: TextStyle(
+//                                    fontSize: 25,
+//                                    color: Colors.blue,
+//                                    fontWeight: FontWeight.w600
+//                                )
+//                            )
+//                          ]
+//                      )),
                 ),
 
 
@@ -161,11 +218,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SliverPadding(
               sliver: SliverAppBar(
+
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)
                   ),
                   backgroundColor: Colors.white,
                   pinned: true,
+                  floating: true,
                   leading: Icon(Icons.list, color: Colors.blue,),
                   actions: [
                     Padding(
@@ -190,6 +249,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: Padding(
                     padding: EdgeInsets.all(1), // remove
                     child: Container(
+                      decoration: BoxDecoration(
+
+                      ),
                       child: TextField(
                         decoration: InputDecoration(
                           focusColor: Colors.blueAccent,
@@ -224,10 +286,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         horizontal: 20
                       ),
                       child: Text(
-                        'Top Developers',
+                        'Top Developers'.toUpperCase(),
 //                      textAlign: TextAlign.left,
                         style: TextStyle(
-
+                          color: Colors.blue,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w900
                         ),
                       ),
                     ),
@@ -241,9 +305,45 @@ class _MyHomePageState extends State<MyHomePage> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index){
                           return Container(
+                            child: Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text('Dev. $index', style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600
+                                  ),)
+                                ],
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40.0),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+
+                                  colors: [
+                                    Colors.cyan.withOpacity(.4),
+                                    Colors.lightBlue.withOpacity(.8),
+
+                                  ],
+                                  stops: [
+                                    0.2,
+                                    0.8
+                                  ]
+                                )
+                              ),
+                            ),
+
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: index%2==0?Colors.blueAccent:Colors.deepOrange,
+
+                              image: DecorationImage(
+                                fit: BoxFit.scaleDown,
+                                image: NetworkImage(index%2==0?'https://pbs.twimg.com/profile_images/1271971746506252290/E8bs2lts_400x400.jpg' : 'https://cdn4.iconfinder.com/data/icons/profession-avatar-5/64/29-programmer-512.png')
+
+                              ),
+                              borderRadius: BorderRadius.circular(40),
+
                             ),
                             width: 100.0,
                             height: 50,
@@ -259,16 +359,87 @@ class _MyHomePageState extends State<MyHomePage> {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                   (context, index){
+                    if (index==0){
+                      return Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: Text('Top Courses'.toUpperCase(), style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 25,
+                          color: Colors.blue
+                        ),),
+                      );
+                    }
 
                     return Padding(
                       padding: EdgeInsets.all(20),
                       child: Container(
                         decoration: BoxDecoration(
-                            color: index%2==0?Colors.deepOrange:Colors.blue,
+//                            color: index%2==0?Colors.pinkAccent:Colors.blue,
+                            gradient: LinearGradient(
+                              colors: index%2==0?[
+                                Colors.pinkAccent,
+                                Colors.pinkAccent.withOpacity(.4)
+                              ] : [
+                                Colors.lightBlue,
+                                Colors.cyan
+                              ]
+                            ),
                           borderRadius: BorderRadius.circular(20)
                         ),
                         height: 100,
-                        width: 100,
+                        width: double.infinity,
+                        child: Stack(
+                          children: [
+                            Container(
+
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 10
+                              ),
+                              alignment: Alignment.topLeft,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Introduction To Ethical Hacking ', style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800
+                                  ),),
+                                  Chip(
+                                    backgroundColor: Colors.white,
+                                    avatar: CircleAvatar(
+                                      backgroundColor: index%2==0?Colors.pinkAccent:Colors.lightBlue,
+                                      child: Icon(index%2==0?Icons.lock_open: Icons.lock, size: 20, color: Colors.white,),
+                                    ),
+                                    label: Text(index%2==0?'Public' : 'Private', style: TextStyle(
+                                      color: index%2==0?Colors.pinkAccent:Colors.blue
+                                    ),),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 10
+                              ),
+                              alignment: Alignment.bottomRight,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    backgroundImage: NetworkImage('https://pbs.twimg.com/profile_images/1271971746506252290/E8bs2lts_400x400.jpg'),
+                                  ),
+                                  Text('TanyaTheCoder', style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600
+                                  ),)
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
 
                       ),
                     );
