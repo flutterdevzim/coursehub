@@ -39,7 +39,7 @@ class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin
     this.startSlides();
 
     animation = AnimationController(vsync: this, duration: Duration(seconds: 2),);
-    _fadeInFadeOut = Tween<double>(begin: 0.5, end: 0.9).animate(animation);
+    _fadeInFadeOut = Tween<double>(begin: 0.2, end: 0.9).animate(animation);
 
     animation.addStatusListener((status){
       if(status == AnimationStatus.completed){
@@ -178,7 +178,8 @@ class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin
 
                                 },
                                 child: Text('Learn More'.toUpperCase(), style: TextStyle(
-                                  color: Colors.white
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800
                                 ),),
                               ),
                             )
@@ -403,7 +404,7 @@ class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin
                                       SizedBox(
                                         width: 10,
                                       ),
-                                      Text('2 HRS', style:TextStyle(
+                                      Text('$index HRS', style:TextStyle(
                                         color: Colors.white.withOpacity(.7),
                                         fontWeight: FontWeight.w800,
 
