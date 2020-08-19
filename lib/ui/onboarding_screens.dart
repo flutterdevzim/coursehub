@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'base.dart';
 
 final List<String> imgList = [
   'assets/images/Coursehub logo.png',
@@ -143,7 +144,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           FlatButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=>Base(),
+              ));
+            },
             color: Colors.white,
             child: Text('LOG IN',
               style: TextStyle(
