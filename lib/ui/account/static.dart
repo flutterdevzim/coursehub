@@ -15,7 +15,7 @@ final coursehub_aquablue = Color(0xFF8EE7EB);
 final coursehub_grey = Color(0xFFCDCED0);
 
 final labelStyle = TextStyle(
-  color: coursehub_grey,
+  color: Colors.grey,
 );
 final hintStyle = TextStyle(
   color: Colors.black,
@@ -30,3 +30,5 @@ final blueTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 18,
 );
+
+final textBorderColor = coursehub_blue;

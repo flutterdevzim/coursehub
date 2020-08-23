@@ -55,62 +55,94 @@ class _NewAccountState extends State<NewAccount> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Full Name",
-                              hintText: "Full Name Required",
-                              labelStyle: labelStyle,
-                              hintStyle: hintStyle,
-                              border: InputBorder.none,
-                              fillColor: coursehub_skyblue.withOpacity(0.1),
-                              filled: true,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
                             ),
-                            keyboardType: TextInputType.name,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: textBorderColor,
+                              ),
+                            ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "Full Name",
+                                hintText: "Full Name Required",
+                                labelStyle: labelStyle,
+                                hintStyle: hintStyle,
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.name,
+                            ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Email Address",
-                              hintText: "Email Required",
-                              labelStyle: labelStyle,
-                              hintStyle: hintStyle,
-                              border: InputBorder.none,
-                              fillColor: coursehub_skyblue.withOpacity(0.1),
-                              filled: true,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
                             ),
-                            keyboardType: TextInputType.emailAddress,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: textBorderColor,
+                              ),
+                            ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "Email Address",
+                                hintText: "Email Required",
+                                labelStyle: labelStyle,
+                                hintStyle: hintStyle,
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                            ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Phone Number",
-                              hintText: "Phone Number With Country Code",
-                              labelStyle: labelStyle,
-                              hintStyle: hintStyle,
-                              border: InputBorder.none,
-                              fillColor: coursehub_skyblue.withOpacity(0.1),
-                              filled: true,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
                             ),
-                            keyboardType: TextInputType.phone,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: textBorderColor,
+                              ),
+                            ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "Phone Number",
+                                hintText: "Phone Number With Country Code",
+                                labelStyle: labelStyle,
+                                hintStyle: hintStyle,
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.phone,
+                            ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Password",
-                              hintText: "Password Required",
-                              labelStyle: labelStyle,
-                              hintStyle: hintStyle,
-                              border: InputBorder.none,
-                              fillColor: coursehub_skyblue.withOpacity(0.1),
-                              filled: true,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
                             ),
-                            obscureText: true,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: textBorderColor,
+                              ),
+                            ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "Password",
+                                hintText: "Password Required",
+                                labelStyle: labelStyle,
+                                hintStyle: hintStyle,
+                                border: InputBorder.none,
+                              ),
+                              obscureText: true,
+                            ),
                           ),
                         ),
                         Padding(

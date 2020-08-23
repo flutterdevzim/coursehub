@@ -54,17 +54,25 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Email Address",
-                              hintText: "Email Required",
-                              labelStyle: labelStyle,
-                              hintStyle: hintStyle,
-                              border: InputBorder.none,
-                              fillColor: coursehub_skyblue.withOpacity(0.1),
-                              filled: true,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
                             ),
-                            keyboardType: TextInputType.emailAddress,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: textBorderColor,
+                              ),
+                            ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "Email Address",
+                                hintText: "Email Required",
+                                labelStyle: labelStyle,
+                                hintStyle: hintStyle,
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                            ),
                           ),
                         ),
                         Padding(

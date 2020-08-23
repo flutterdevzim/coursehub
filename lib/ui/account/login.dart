@@ -56,17 +56,25 @@ class _LogInState extends State<LogIn> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Email Address",
-                              hintText: "Email Required",
-                              labelStyle: labelStyle,
-                              hintStyle: hintStyle,
-                              border: InputBorder.none,
-                              fillColor: coursehub_skyblue.withOpacity(0.1),
-                              filled: true,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 4.0,
                             ),
-                            keyboardType: TextInputType.emailAddress,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: textBorderColor,
+                              ),
+                            ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: "Email Address",
+                                hintText: "Email Required",
+                                labelStyle: labelStyle,
+                                hintStyle: hintStyle,
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                            ),
                           ),
                         ),
                         Padding(
@@ -78,18 +86,25 @@ class _LogInState extends State<LogIn> {
                             children: [
                               Stack(
                                 children: [
-                                  TextFormField(
-                                    decoration: InputDecoration(
-                                      labelText: "Password",
-                                      hintText: "Password Required",
-                                      labelStyle: labelStyle,
-                                      hintStyle: hintStyle,
-                                      border: InputBorder.none,
-                                      fillColor:
-                                          coursehub_skyblue.withOpacity(0.1),
-                                      filled: true,
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 4.0,
                                     ),
-                                    obscureText: _password_visibility_hidden,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: textBorderColor,
+                                      ),
+                                    ),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                        labelText: "Password",
+                                        hintText: "Password Required",
+                                        labelStyle: labelStyle,
+                                        hintStyle: hintStyle,
+                                        border: InputBorder.none,
+                                      ),
+                                      obscureText: _password_visibility_hidden,
+                                    ),
                                   ),
                                   Positioned(
                                     right: 10,
