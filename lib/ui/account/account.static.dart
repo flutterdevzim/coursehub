@@ -32,3 +32,14 @@ final blueTextStyle = TextStyle(
 );
 
 final textBorderColor = coursehub_blue;
+final containerDecoration = BoxDecoration(
+  border: Border.all(
+    color: textBorderColor,
+  ),
+  borderRadius: BorderRadius.circular(
+    5.0,
+  ),
+);
+final containerPadding = EdgeInsets.symmetric(
+  horizontal: 4.0,
+);

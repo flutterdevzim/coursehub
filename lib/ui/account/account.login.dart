@@ -58,17 +58,8 @@ class _LogInState extends State<LogIn> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4.0,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: textBorderColor,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                5.0,
-                              ),
-                            ),
+                            padding: containerPadding,
+                            decoration: containerDecoration,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 labelText: "Email Address",
@@ -91,17 +82,8 @@ class _LogInState extends State<LogIn> {
                               Stack(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 4.0,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: textBorderColor,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                        5.0,
-                                      ),
-                                    ),
+                                    padding: containerPadding,
+                                    decoration: containerDecoration,
                                     child: TextFormField(
                                       decoration: InputDecoration(
                                         labelText: "Password",

@@ -55,17 +55,8 @@ class _NewAccountState extends State<NewAccount> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4.0,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: textBorderColor,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                5.0,
-                              ),
-                            ),
+                            padding: containerPadding,
+                            decoration: containerDecoration,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 labelText: "Full Name",
@@ -81,17 +72,8 @@ class _NewAccountState extends State<NewAccount> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4.0,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: textBorderColor,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                5.0,
-                              ),
-                            ),
+                            padding: containerPadding,
+                            decoration: containerDecoration,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 labelText: "Email Address",
@@ -107,17 +89,8 @@ class _NewAccountState extends State<NewAccount> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4.0,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: textBorderColor,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                5.0,
-                              ),
-                            ),
+                            padding: containerPadding,
+                            decoration: containerDecoration,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 labelText: "Phone Number",
@@ -133,17 +106,8 @@ class _NewAccountState extends State<NewAccount> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4.0,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: textBorderColor,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                5.0,
-                              ),
-                            ),
+                            padding: containerPadding,
+                            decoration: containerDecoration,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 labelText: "Password",
