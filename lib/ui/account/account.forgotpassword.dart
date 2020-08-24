@@ -1,5 +1,5 @@
-import 'package:coursehub/ui/account/new_account.dart';
-import 'package:coursehub/ui/account/static.dart';
+import 'package:coursehub/ui/account/account.newaccount.dart';
+import 'package:coursehub/ui/account/account.static.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {

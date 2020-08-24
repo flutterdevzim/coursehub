@@ -1,6 +1,6 @@
-import 'package:coursehub/ui/account/forgot_password.dart';
-import 'package:coursehub/ui/account/new_account.dart';
-import 'package:coursehub/ui/account/static.dart';
+import 'package:coursehub/ui/account/account.forgotpassword.dart';
+import 'package:coursehub/ui/account/account.newaccount.dart';
+import 'package:coursehub/ui/account/account.static.dart';
 import 'package:flutter/material.dart';
 
 class LogIn extends StatefulWidget {
@@ -10,6 +10,7 @@ class LogIn extends StatefulWidget {
 
 class _LogInState extends State<LogIn> {
   final _formKey = new GlobalKey<FormState>();
+  // ignore: non_constant_identifier_names
   bool _password_visibility_hidden = true;
   @override
   Widget build(BuildContext context) {

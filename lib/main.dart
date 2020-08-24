@@ -1,5 +1,4 @@
-import 'package:coursehub/ui/account/new_account.dart';
-import 'package:coursehub/ui/base.dart';
+import 'package:coursehub/ui/account/index.dart';
 import 'package:flutter/material.dart';
 
 void main() {
