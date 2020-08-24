@@ -63,6 +63,9 @@ class _NewAccountState extends State<NewAccount> {
                               border: Border.all(
                                 color: textBorderColor,
                               ),
+                              borderRadius: BorderRadius.circular(
+                                5.0,
+                              ),
                             ),
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -85,6 +88,9 @@ class _NewAccountState extends State<NewAccount> {
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: textBorderColor,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                5.0,
                               ),
                             ),
                             child: TextFormField(
@@ -109,6 +115,9 @@ class _NewAccountState extends State<NewAccount> {
                               border: Border.all(
                                 color: textBorderColor,
                               ),
+                              borderRadius: BorderRadius.circular(
+                                5.0,
+                              ),
                             ),
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -131,6 +140,9 @@ class _NewAccountState extends State<NewAccount> {
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: textBorderColor,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                5.0,
                               ),
                             ),
                             child: TextFormField(

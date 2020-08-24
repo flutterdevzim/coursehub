@@ -62,6 +62,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               border: Border.all(
                                 color: textBorderColor,
                               ),
+                              borderRadius: BorderRadius.circular(
+                                5.0,
+                              ),
                             ),
                             child: TextFormField(
                               decoration: InputDecoration(

@@ -64,6 +64,9 @@ class _LogInState extends State<LogIn> {
                               border: Border.all(
                                 color: textBorderColor,
                               ),
+                              borderRadius: BorderRadius.circular(
+                                5.0,
+                              ),
                             ),
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -93,6 +96,9 @@ class _LogInState extends State<LogIn> {
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                         color: textBorderColor,
+                                      ),
+                                      borderRadius: BorderRadius.circular(
+                                        5.0,
                                       ),
                                     ),
                                     child: TextFormField(
