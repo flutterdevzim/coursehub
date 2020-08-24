@@ -33,6 +33,7 @@ final blueTextStyle = TextStyle(
 
 final textBorderColor = coursehub_blue;
 final containerDecoration = BoxDecoration(
+  color: Color(0xFFEBEAF2),
   border: Border.all(
     color: textBorderColor,
   ),
