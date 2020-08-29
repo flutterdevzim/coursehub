@@ -1,6 +1,8 @@
 import 'package:coursehub/ui/home.dart';
 import 'package:flutter/material.dart';
 
+import 'explore.dart';
+
 class Base extends StatefulWidget {
   @override
   _BaseState createState() => _BaseState();
@@ -11,13 +13,19 @@ class _BaseState extends State<Base> {
   int _current = 0;
   final List<Widget> _screens = [
     HomePage(),
-    //ExplorePage(),
+    ExplorePage(),
   ];
 
   void _onTap(int index) {
-    setState(() {
-      _current = index;
-    });
+    try{
+      // Catch RangeError for missing pages
+      setState(() {
+        _current = index;
+      });
+    }catch(e){
+      // page unimplemented
+      print('Missing Page');
+    }
   }
 
   @override
