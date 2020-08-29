@@ -9,6 +9,12 @@ dependencies:
     sdk: flutter
   carousel_slider: ^2.2.1
 
+  # responsive ui test
+  device_preview: ^0.4.8
+
+  # responsive text font
+  auto_size_text: ^2.1.0
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3

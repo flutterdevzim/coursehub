@@ -1,9 +1,26 @@
-import 'package:coursehub/ui/base.dart';
-import 'package:coursehub/ui/onboarding_screens.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:flutter/material.dart';
 
+import 'package:coursehub/ui/index.dart';
+import 'package:coursehub/utils/index.dart';
+
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode, // default state
+      //enabled: false;             // uncomment this to disable the device preview and comment the above code
+      /*
+      onScreenshot: (screenshot) async {
+        final bytes = screenshot.bytes;
+        final scrnshot = await <Function-to-save-bytes-as-images-to-storage>(bytes);
+        return scrnshot;
+      },
+      */
+      builder: (context) => MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,10 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CourseHub',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: mainTheme,
       home: OnboardingScreen(),
     );
   }

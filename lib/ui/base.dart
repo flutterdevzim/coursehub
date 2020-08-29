@@ -1,7 +1,5 @@
-import 'package:coursehub/ui/home.dart';
+import 'package:coursehub/ui/index.dart';
 import 'package:flutter/material.dart';
-
-import 'explore.dart';
 
 class Base extends StatefulWidget {
   @override
@@ -14,6 +12,7 @@ class _BaseState extends State<Base> {
   final List<Widget> _screens = [
     HomePage(),
     ExplorePage(),
+    SingleCoursePage(),
   ];
 
   void _onTap(int index) {
