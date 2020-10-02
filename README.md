@@ -2,6 +2,14 @@
 
 Online E-Learning App
 
+# Screenshots
+
+Create Account Screen | Login Screen | Home Screen
+------------ | -------------|--------------
+
+Onboard Screen | Explore Screen | SingleCourse Screen
+------------ | -------------|--------------
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
