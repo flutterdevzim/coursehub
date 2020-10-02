@@ -1,7 +1,11 @@
 import 'package:coursehub/ui/account/account.forgotpassword.dart';
 import 'package:coursehub/ui/account/account.newaccount.dart';
 import 'package:coursehub/ui/account/account.static.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../base.dart';
+import '../explore.dart';
 
 class LogIn extends StatefulWidget {
   @override
@@ -10,6 +14,11 @@ class LogIn extends StatefulWidget {
 
 class _LogInState extends State<LogIn> {
   final _formKey = new GlobalKey<FormState>();
+  bool showSpinner = false;
+  final auth = FirebaseAuth.instance;
+  String email;
+  String password;
+
   // ignore: non_constant_identifier_names
   bool _password_visibility_hidden = true;
   @override
@@ -132,6 +141,9 @@ class _LogInState extends State<LogIn> {
                                     border: InputBorder.none,
                                   ),
                                   keyboardType: TextInputType.emailAddress,
+                                  onChanged: (value) {
+                                    email = value;
+                                  },
                                 ),
                               ),
                             ),
@@ -157,6 +169,9 @@ class _LogInState extends State<LogIn> {
                                           ),
                                           obscureText:
                                               _password_visibility_hidden,
+                                          onChanged: (value) {
+                                            password = value;
+                                          },
                                         ),
                                       ),
                                       Positioned(
@@ -218,7 +233,28 @@ class _LogInState extends State<LogIn> {
                                 color: coursehub_blue,
                                 alignment: Alignment.center,
                                 child: MaterialButton(
-                                  onPressed: null,
+                                  onPressed: () async {
+                                    // Add login code
+                                    setState(() {
+                                      showSpinner = true;
+                                    });
+                                    try {
+                                      final user =
+                                          await auth.signInWithEmailAndPassword(
+                                              email: email, password: password);
+                                      if (user != null) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Base()));
+                                      }
+                                      setState(() {
+                                        showSpinner = false;
+                                      });
+                                    } catch (e) {
+                                      print(e);
+                                    }
+                                  },
                                   child: Text(
                                     "LOG IN",
                                     style: blueButtonTextStyle,

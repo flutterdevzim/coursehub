@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'account/account.newaccount.dart';
+import 'account/account.newaccount.dart';
 import 'base.dart';
 
 final List<String> imgList = [
@@ -14,11 +16,10 @@ final List<String> stepList = [
   'Learn anytime, anywhere and every time',
 ];
 
-
 final List carouselImages = map<Widget>(
   imgList,
   stepList,
-      (index, i) {
+  (index, i) {
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.all(5.0),
@@ -31,21 +32,21 @@ final List carouselImages = map<Widget>(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Course',
-                      style: TextStyle(
+                  Text(
+                    'Course',
+                    style: TextStyle(
                         color: Color(0xff1A72FF),
                         fontFamily: 'Lato',
                         fontWeight: FontWeight.bold,
-                        fontSize: 25
-                      ),
+                        fontSize: 25),
                   ),
-                  Text('hub',
+                  Text(
+                    'hub',
                     style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Lato',
                         fontWeight: FontWeight.bold,
-                        fontSize: 25
-                    ),
+                        fontSize: 25),
                   ),
                 ],
               ),
@@ -55,11 +56,11 @@ final List carouselImages = map<Widget>(
               child: Text(
                 stepList[index],
                 style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Lato',
-                    fontSize: 15.0,
-                    height: 1.0,
-                    fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                  fontFamily: 'Lato',
+                  fontSize: 15.0,
+                  height: 1.0,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -78,14 +79,12 @@ List<T> map<T>(List list, List wordList, Function handler) {
   return result;
 }
 
-
 class OnboardingScreen extends StatefulWidget {
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-
   // Step indicator
   int _current = 0;
 
@@ -98,28 +97,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           CarouselSlider(
             items: carouselImages,
             options: CarouselOptions(
-              viewportFraction: 1.0,
-              aspectRatio: 1.2,
-              autoPlay: true,
-              enlargeCenterPage: false,
+                viewportFraction: 1.0,
+                aspectRatio: 1.2,
+                autoPlay: true,
+                enlargeCenterPage: false,
                 onPageChanged: (index, reason) {
                   setState(() {
                     _current = index;
                   });
-                }
-            ),
+                }),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: map<Widget>(
               imgList,
               stepList,
-                  (index, url) {
+              (index, url) {
                 return Container(
                   width: 8.0,
                   height: 8.0,
-                  margin: EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 2.0),
+                  margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 2.0),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: _current == index
@@ -132,30 +129,38 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: FlatButton(
-              onPressed: (){},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NewAccount(),
+                    ));
+              },
               color: Color(0xff1A72FF),
-              child: Text('CREATE NEW ACCOUNT',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Lato',
-                fontWeight: FontWeight.bold
-              ),
+              child: Text(
+                'CREATE NEW ACCOUNT',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Lato',
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ),
           FlatButton(
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context)=>Base(),
-              ));
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Base(),
+                  ));
             },
             color: Colors.white,
-            child: Text('LOG IN',
+            child: Text(
+              'LOG IN',
               style: TextStyle(
                   color: Color(0xff1A72FF),
                   fontFamily: 'Lato',
-                  fontWeight: FontWeight.bold
-              ),
+                  fontWeight: FontWeight.bold),
             ),
           )
         ],
@@ -163,4 +168,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
-
